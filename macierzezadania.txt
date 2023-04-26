@@ -5,7 +5,7 @@ import math
 print("============= Zad 1 =================")
 a = np.array([2,1,3])
 b = np.array([1,1,2])
-c = np.dot(a,b)
+c = a * b
 print(c)
 
 #Utwórz macierz 3x3 oraz 4x4 i znajdź najniższe wartości dla każdej kolumny i każdego rzędu.
@@ -23,7 +23,7 @@ print(b1.min(axis=0))
 
 #Wykorzystaj macierze z zadania pierwszego i wykonaj iloczyn macierzy
 print("============= Zad 3 =================")
-f = np.matmul(a,b)
+f = np.dot(a,b)
 print(f)
 
 #Utwórz dwie macierze 1x3 gdzie pierwsza z nich będzie zawierała liczby całkowite, a druga
