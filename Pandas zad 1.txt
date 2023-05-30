@@ -1,0 +1,49 @@
+import numpy as np
+import pandas as pd
+
+
+Zadanie 2 Z danych z zadania 1 wyświetl (korzystając w miarę możliwości z funkcji biblioteki Pandas):
+    1. •tylko te rekordy gdzie liczba nadanych imion była większa niż 1000 w danym roku
+    2. •tylko rekordy gdzie nadane imię jest takie jak Twoje
+    3. •sumę wszystkich urodzonych dzieci w całym danym okresie,
+    4. •sumę dzieci urodzonych w latach 2000-2005
+    5. •sumę urodzonych chłopców i dziewczynek,
+Zadanie 3
+Wczytaj plik /datasets/zamowieniana.csv a następnie wyświetl:
+    6. •listę unikalnych nazwisk sprzedawców (przetwarzając zwróconą pojedynczą kolumnę z DataFrame)
+    7. •5 najwyższych wartości zamówień
+    8. •ilość zamówień złożonych przez każdego sprzedawcę
+    9. •sumę zamówień dla każdego kraju
+    10. •sumę zamówień dla roku 2005, dla sprzedawców z Polski
+    11. •średnią kwotę zamówienia w 2004 roku,
+    12. •zapisz dane za 2004 rok do pliku zamówienia_2004.csv a dane za 2005 do pliku zamówienia_2005.csv Zadanie 2 
+
+plik = pd.ExcelFile('imiona.xlsx')
+df = pd.read_excel(plik, header=0)
+
+1. print(df[df.Liczba > 1000])
+print('')
+2. print(df[df.Imie == 'RADOSŁAW'])
+print('')
+3. print(df.Liczba.sum())
+print('')
+4. grupa = df[df.Rok < 2006]
+print(grupa.Liczba.sum())
+5. grupa = df[df.Rok < 2006].groupby('Rok').agg({'Liczba': ['sum']})
+print(grupa)
+
+# df = pd.read_csv('zamowienia.csv', header=0, sep=';', decimal='.')
+
+6.  print(df['Sprzedawca'].unique())
+# print('')
+7.  print(df.sort_values('Utarg', ascending=False).head(5))
+# print('')
+8.  print(df.groupby('Sprzedawca').size())
+# print('')
+9. print(df.groupby('Kraj').agg({'Utarg': ['sum']}))
+10.  print(df.groupby('Kraj').size())
+# print('')
+
+
+
+
