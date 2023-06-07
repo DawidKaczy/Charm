@@ -41,8 +41,16 @@ print(grupa)
 8.  print(df.groupby('Sprzedawca').size())
 # print('')
 9. print(df.groupby('Kraj').agg({'Utarg': ['sum']}))
-10.  print(df.groupby('Kraj').size())
+   print(df.groupby('Kraj').size())
 # print('')
+
+10.print(df[(df['Kraj'] == 'Polska') & (df['Data zamowienia'] >= '2005-01-01') & (df['Data zamowienia'] <= '2005-12-31')].agg({'Utarg': ['sum']}))
+
+11.print(df[df['Data zamowienia'].str[:4] == '2004'].agg({'Utarg': ['mean']}))
+
+12.
+rok_2004 = df[((df[ 'Data zamowienia'] >= '2004-01-01') & (df['Data zamowienia'] <= '2004-12-31'))]
+# rok_2004.to_csv("zamowienia_2004.csv", index=False)
 
 
 
