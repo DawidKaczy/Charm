@@ -1,0 +1,88 @@
+import pandas as pd
+import matplotlib.pyplot as plt
+import numpy as np
+import seaborn as sns
+import math
+
+# #zad1
+# x = np.arange(5, 10+0.15, 0.15)
+# y = np.tan(x) + np.cos(x)/2
+# z = np.tan(x)
+# o = np.cos(x)/2
+# plt.plot(x, y,'r-',label ='tan(x)+cos(x)/2' )
+# plt.plot(x, z,'b.',label ='tan(x)' )
+# plt.plot(x, o,'g',label ='cos(x)/2' )
+# plt.xlabel('x')
+# plt.ylabel('f(x)')
+# plt.xlim(5, 10)
+# plt.suptitle("zadanie 1")
+# plt.title('Wykres liniowy funkcji  tan(x)+cos(x)/2')
+# plt.legend()
+# plt.savefig('Dawid_Kaczynski_zad1.png')
+# plt.show()
+
+# #zad 2
+# fig, axs = plt.subplots(2,2)
+# x = np.arange(0, 10+ 0.25, 0.25)
+# y = np.sin(x) + 0.4
+#
+# axs[0,0].plot(x, y, 'r-.', label ='sin(x) + 0.4')
+# axs[0,0].set_xlabel('x')
+# axs[0,0].set_ylabel('sin(x) + 0.4')
+# axs[0,0].set_title('Wykres sin(x) + 0.4')
+# axs[0,0].legend(loc='lower left')
+#
+#
+# x2 = np.arange(1, 6, 1)
+# y2 = (x2+5)/2
+# axs[1,1].bar(x2, y2,label ='f(x) = (x+5)/2')
+# axs[1,1].set_xlabel('x')
+# axs[1,1].set_ylabel('Wynik funckji')
+# axs[1,1].set_title('Wykres słupkowy funkcji')
+#
+# axs[1, 1].set_xticks([1, 2, 3, 4, 5])
+# axs[1, 1].set_yticks([0, 1, 2, 3, 4, 5])
+#
+# axs[1,1].legend(loc='upper left')
+#
+# axs[1, 0].axis("off")
+# axs[0, 1].axis("off")
+#
+# plt.subplots_adjust(hspace= 0.25)
+# plt.subplots_adjust(wspace= 0.25)
+# plt.savefig('Dawid_Kaczynski_zad2.png')
+# plt.show()
+
+
+
+# #zad3 Używając biblioteki pandas,  Na wykresie kołowym
+# tabelka = pd.read_csv('glass.data')
+# a = tabelka[tabelka.Magnesium > 3.6]
+# new_df = a.groupby("Type of glass")
+# grupa = tabelka.groupby("Type of glass").size()
+# plt.pie(grupa, labels=grupa.index, autopct='%.1f%%')
+# plt.legend(labels=grupa.index, loc='lower left', title="index szkła")
+# plt.savefig("Dawid_Kaczynski_zad3.png")
+# plt.show()
+
+lub 
+
+# tabelka = pd.read_csv('glass.data', header=0, sep=',', decimal='.')
+# print(tabelka)
+# a = tabelka[tabelka.Magnesium > 3.6]
+# new_df = a.groupby("Type of glass")
+# grupa = tabelka.groupby("Type of glass").size()
+# plt.pie(grupa, labels=grupa.index, autopct='%.1f%%')
+# plt.legend(labels=grupa.index, loc='lower left', title="index szkła")
+# plt.savefig("im_naz_zad3.png")
+# plt.show()
+
+# #zad4 Za pomocą biblioteki pandas, następnie na wykresie słupkowym z biblioteki seaborn
+# df = pd.read_csv('glass.data')
+# sns.set()
+# plot = sns.barplot(x='Type of glass', y='Sodium', data=df, estimator=np.sum, label=["Magnesium","Aluminum","Silicon","Potassium","Calcium","Barium"])
+# sns.set_style('whitegrid')
+# plot.set(title="wykres słupkowy")
+# plot.legend()
+# plt.savefig("Dawid_Kaczynski_zad4.png")
+# plt.show()

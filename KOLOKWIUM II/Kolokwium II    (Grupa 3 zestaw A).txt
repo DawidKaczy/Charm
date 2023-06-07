@@ -1,0 +1,76 @@
+import pandas as pd
+import matplotlib.pyplot as plt
+import numpy as np
+import seaborn as sns
+import math
+
+#zadanie1
+# x = np.linspace(-3, 6, 35)
+# y = 8*(x**2)/4 + np.cos(x)
+# z = 8*(x**2)/4
+# o = np.cos(x)
+# plt.plot(x, y,'r-',label ='(8*x^2)/4 + cos(x)' )
+# plt.plot(x, z,'b.',label ='(8*x^2)/4' )
+# plt.plot(x, o,'g',label ='cos(x)' )
+# plt.xlabel('x')
+# plt.ylabel('f(x)')
+# plt.xlim(-3, 5)
+# plt.suptitle("zadanie 1")
+# plt.title('Wykres liniowy funkcji')
+# plt.legend()
+# plt.savefig('Dawid_Kaczynski_zad1.png')
+# plt.show()
+
+#zadanie2
+# fig, axs = plt.subplots(1,2)
+# x1 = np.arange(-3, 3+0.1, 0.1)
+# f1 = x1**2 + 5
+#
+# axs[0].plot(x1, f1, label='x^2+5')
+# axs[0].set_xlabel('x')
+# axs[0].set_ylabel('Wykres funkcji')
+# axs[0].set_title('Wykres funkcji f(x)=x^2+5')
+# axs[0].legend(loc='upper center')
+# axs[0].set_xlim(-3, 3)
+# axs[0].set_xticks([-3, 0, 3])
+#
+# x2 = np.arange(-3, 3+0.1, 0.1)
+# f2 = x2**2+5
+# f3 = (-x2**2)+4*x2
+# axs[1].plot(x2, f2, 'ro',label ='x^2+5')
+# axs[1].plot(x2, f3, 'go',label ='-x^2+4x')
+# axs[1].set_xlabel('x')
+# axs[1].set_ylabel('wartość funckji')
+# axs[1].set_title('Wykres dwóch funkcji')
+# axs[1].legend(loc='lower right')
+# axs[1].set_xlim(-3, 3)
+# axs[1].set_xticks([-3, 0, 3])
+#
+# plt.subplots_adjust(hspace=0.5)
+# plt.subplots_adjust(wspace=0.7)
+# plt.savefig('Dawid_Kaczynski_zad2.png')
+# plt.show()
+
+# zadanie 3 Używając biblioteki pandas Na wykresie kołowym
+# df = pd.read_csv('glass.data')
+# a = df.sample(n=100, replace=False)
+# grupa = a.groupby("Type of glass").agg('Aluminum').sum()
+# plt.pie(grupa, labels=grupa.index, autopct='%.1f%%')
+# plt.legend(labels=grupa.index, loc='lower left', title="index")
+# plt.savefig("Dawid_Kaczynski_zad3.png")
+# plt.show()
+
+#zadanie4
+# plik = pd.read_csv("glass.data")
+# df = plik[["Sodium","Magnesium","Aluminum","Silicon",
+#            "Potassium","Calcium","Barium", "Iron","Type of glass"]].groupby('Type of glass').sum()
+# 
+# print(df)
+# sns.set()
+# sns.barplot(df, errorbar=None, label=df.columns)
+# sns.set_style("whitegrid")
+# plt.xlabel('type of glass')
+# plt.ylabel("ilość typu szkła")
+# plt.title("wykres słupkowy szkła")
+# plt.legend()
+# plt.show()
